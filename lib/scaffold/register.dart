@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' as prefix0;
 import 'package:flutter/material.dart';
 import 'package:momall/utility/my_style.dart';
+import 'package:momall/utility/normal_dialog.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -94,11 +96,25 @@ class _RegisterState extends State<Register> {
         .createUserWithEmailAndPassword(email: email, password: password)
         .then((response) {
       print("Register Success");
+      setupDisplayName();
     }).catchError((response) {
       String title = response.code;
       String message = response.message;
       print('title = $title, message = $message');
+      normalDialog(context, title, message);
     });
+  }
+
+  Future<void> setupDisplayName()async{
+
+    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    FirebaseUser firebaseUser = await firebaseAuth.currentUser();
+    UserUpdateInfo userUpdateInfo = prefix0.UserUpdateInfo();
+    userUpdateInfo.displayName = name;
+    firebaseUser.updateProfile(userUpdateInfo);
+
+    Navigator.of(context).pop();
+
   }
 
   @override
