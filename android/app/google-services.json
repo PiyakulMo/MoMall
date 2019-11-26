@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "295898791708",
+    "firebase_url": "https://momall.firebaseio.com",
+    "project_id": "momall",
+    "storage_bucket": "momall.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295898791708:android:35ea3c78d56242f3d044d9",
+        "android_client_info": {
+          "package_name": "com.flutterthailand.momall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295898791708-73ebmlo1nl4foe1sdhrplt0komf3egco.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqY-GyPWGGI7D_xyDaSTL3y0mDQh2UTdA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "295898791708-73ebmlo1nl4foe1sdhrplt0komf3egco.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

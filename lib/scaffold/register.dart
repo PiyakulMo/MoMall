@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:momall/utility/my_style.dart';
 
@@ -81,9 +82,23 @@ class _RegisterState extends State<Register> {
       icon: Icon(Icons.cloud_upload),
       onPressed: () {
         formKey.currentState.save();
-        print('name = $name, emauk = $email, password = $password');
+        print('name = $name, email = $email, password = $password');
+        regiterThread();
       },
     );
+  }
+
+  Future<void> regiterThread() async {
+    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    await firebaseAuth
+        .createUserWithEmailAndPassword(email: email, password: password)
+        .then((response) {
+      print("Register Success");
+    }).catchError((response) {
+      String title = response.code;
+      String message = response.message;
+      print('title = $title, message = $message');
+    });
   }
 
   @override
